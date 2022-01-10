@@ -1,0 +1,77 @@
+version: '3.9'
+
+volumes:
+  couchbase:
+  couchbase_replica:
+  couchbase_replica2:
+
+networks:
+  couchbase:
+    ipam:
+      config:
+        - subnet: 172.24.0.0/24
+
+services:
+  seeder:
+    build: .
+    depends_on:
+      - couchbase
+    networks:
+      couchbase:
+        ipv4_address: 172.24.0.6
+    ports:
+      - '8090:80'
+    environment:
+      - COUCHBASE_HOST=172.24.0.2
+      - COUCHBASE_USER=alice"
+      - COUCHBASE_PASSWORD=Pass123$$
+
+  couchbase:
+    image: couchbase:latest
+    restart: always
+    ports:
+      - '8091-8095:8091-8095'
+      - '11210:11210'
+      - '9102:9102'
+    networks:
+      couchbase:
+        ipv4_address: 172.24.0.2
+    volumes:
+      - couchbase:/opt/couchbase/var
+
+  replica:
+    image: couchbase:latest
+    restart: always
+    ports:
+      - '9091:8091'
+    networks:
+      couchbase:
+        ipv4_address: 172.24.0.3
+    volumes:
+      - couchbase_replica:/opt/couchbase/var
+
+  replica2:
+    image: couchbase:latest
+    restart: always
+    ports:
+      - '10091:8091'
+    networks:
+      couchbase:
+        ipv4_address: 172.24.0.4
+    volumes:
+      - couchbase_replica2:/opt/couchbase/var
+
+  gateway:
+    image: couchbase/sync-gateway:3.0.0-beta02-enterprise
+    restart: always
+    ports:
+      - '4984:4984'
+    volumes:
+      - ./sync-gateway-config.json:/tmp/config/config.json
+    networks:
+      - couchbase
+    command: -adminInterface :4985 /tmp/config/config.json
+    depends_on:
+      - couchbase
+      - replica
+      - replica2

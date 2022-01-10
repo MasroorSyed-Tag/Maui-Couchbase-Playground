@@ -1,0 +1,57 @@
+{
+  "bootstrap": {
+    "server": "couchbase://couchbase",
+    "username": "alice",
+    "password": "Pass123$",
+    "use_tls_server": false
+  },
+  "api": {
+    "https": {},
+    "cors": {
+      "origin": [
+        "http://localhost:3000",
+        "http://localhost:8002"
+      ],
+      "login_origin": [
+        "http://localhost:3000",
+        "http://localhost:8002"
+      ],
+      "headers": [
+        "Content-Type",
+        "Authorization"
+      ],
+      "max_age": 1728000
+    }
+  },
+  "logging": {
+    "console": {
+      "enabled": true,
+      "rotation": {},
+      "log_level": "info",
+      "log_keys": [
+        "HTTP"
+      ]
+    },
+    "error": {
+      "rotation": {}
+    },
+    "warn": {
+      "rotation": {}
+    },
+    "info": {
+      "rotation": {}
+    },
+    "debug": {
+      "rotation": {}
+    },
+    "trace": {
+      "rotation": {}
+    },
+    "stats": {
+      "rotation": {}
+    }
+  },
+  "auth": {},
+  "replicator": {},
+  "unsupported": {}
+}
