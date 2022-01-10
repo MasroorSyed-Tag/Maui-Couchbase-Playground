@@ -1,0 +1,22 @@
+is_global = true
+build_property.TargetFramework = net6.0-maccatalyst
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Maui_Couchbase_Playground
+build_property.ProjectDir = C:\Users\MasroorSyed\source\repos\Maui-Couchbase-Playground\Maui-Couchbase-Playground\
+
+[C:/Users/MasroorSyed/source/repos/Maui-Couchbase-Playground/Maui-Couchbase-Playground/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Maui_Couchbase_Playground.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/Users/MasroorSyed/source/repos/Maui-Couchbase-Playground/Maui-Couchbase-Playground/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Maui_Couchbase_Playground.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
