@@ -12,19 +12,6 @@ networks:
         - subnet: 172.24.0.0/24
 
 services:
-  seeder:
-    build: .
-    depends_on:
-      - couchbase
-    networks:
-      couchbase:
-        ipv4_address: 172.24.0.6
-    ports:
-      - '8090:80'
-    environment:
-      - COUCHBASE_HOST=172.24.0.2
-      - COUCHBASE_USER=alice"
-      - COUCHBASE_PASSWORD=Pass123$$
 
   couchbase:
     image: couchbase:latest
