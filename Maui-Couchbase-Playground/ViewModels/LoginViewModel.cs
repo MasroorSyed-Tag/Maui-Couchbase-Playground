@@ -57,7 +57,7 @@ namespace Maui_Couchbase_Playground.ViewModels
                     Password = Password
                 };
 
-                //Navigation.ReplaceRoot<UserProfileViewModel>();
+                Navigation.ReplaceRoot<UserProfileViewModel>();
             }
         }
     }

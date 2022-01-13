@@ -1,4 +1,4 @@
-﻿using MCP.Application.ViewModels;
+﻿using MCP.Application.MVVM;
 using System.Reflection;
 
 namespace MCP.Application.Interfaces

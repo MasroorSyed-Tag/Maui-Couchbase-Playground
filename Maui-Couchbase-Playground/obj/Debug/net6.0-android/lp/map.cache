@@ -1,3 +1,8 @@
+Couchbase.Lite.dll
+Couchbase.Lite.Support.Android.dll
+MCP.Application.dll
+MCP.Domain.dll
+MCP.Persistence.dll
 Microsoft.Maui.Controls.Compatibility.Android.FormsViewGroup.dll
 Microsoft.Maui.Controls.Compatibility.dll
 Microsoft.Maui.Controls.dll
@@ -44,7 +49,6 @@ Xamarin.AndroidX.Lifecycle.ViewModelSavedState.dll
 Xamarin.AndroidX.Loader.dll
 Xamarin.AndroidX.LocalBroadcastManager.dll
 Xamarin.AndroidX.Media.dll
-Xamarin.AndroidX.MultiDex.dll
 Xamarin.AndroidX.Navigation.Common.dll
 Xamarin.AndroidX.Navigation.Fragment.dll
 Xamarin.AndroidX.Navigation.Runtime.dll
@@ -112,6 +116,9 @@ androidx.exifinterface.exifinterface.aar
 androidx.browser.browser.aar
 gifdecoder.aar
 glide.aar
+MCP.Application.aar
+MCP.Domain.aar
+MCP.Persistence.aar
 Microsoft.Maui.Controls.aar
 Microsoft.Maui.Controls.Compatibility.aar
 Microsoft.Maui.Controls.Compatibility.Android.FormsViewGroup.aar

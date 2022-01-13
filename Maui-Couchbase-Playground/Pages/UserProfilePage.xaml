@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<local:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MCP.Application.Forms;assembly=MCP.Application"
+             xmlns:vm="clr-namespace:Maui_Couchbase_Playground.ViewModels;assembly=Maui_Couchbase_Playground"
+             x:TypeArguments="vm:UserProfileViewModel"
+             xmlns:converters="clr-namespace:MCP.Common.Converters;assembly=MCP.Common"
+             x:Class="Maui_Couchbase_Playground.UserProfilePage"
+             Title="UserProfilePage"
+             BackgroundColor="Black">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" Command="{Binding SaveCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ByteToImageFieldConverter x:Key="byteToImageSource" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Margin="15,25,15,20" RowSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width=".25*" />
+                <ColumnDefinition Width=".75*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" Grid.ColumnSpan="2" Spacing="5" Margin="0,0,0,20">
+                <Image Source="{Binding ImageData, Converter={StaticResource byteToImageSource}}"
+                                 Aspect="AspectFit" WidthRequest="300" HeightRequest="200" HorizontalOptions="Center" />
+                <Button Text="Upload Image" Command="{Binding SelectImageCommand}" HorizontalOptions="Center" />
+            </StackLayout>
+
+            <Label Grid.Row="1" Grid.Column="0" Text="Name:" HorizontalOptions="End" VerticalOptions="Center" />
+            <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Name}" VerticalOptions="Center"  />
+
+            <Label Grid.Row="2" Grid.Column="0" Text="Email:" HorizontalOptions="End" VerticalOptions="Center" />
+            <Entry Grid.Row="2" Grid.Column="1" Text="{Binding Email}" VerticalOptions="Center" IsEnabled="false" />
+
+            <Label Grid.Row="3" Grid.Column="0" Text="Address:" HorizontalOptions="End" VerticalOptions="Center" />
+            <Entry Grid.Row="3" Grid.Column="1" Text="{Binding Address}" VerticalOptions="Center" />
+
+            <Label Grid.Row="4" Grid.Column="0" Text="University:" HorizontalOptions="End" VerticalOptions="Center" />
+            <Label Grid.Row="4" Grid.Column="1" Text="{Binding University}" TextColor="Blue">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SelectUniversityCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Button Grid.Row="5" Grid.ColumnSpan="2" Text="Logout" Command="{Binding LogoutCommand}" 
+                    TextColor="Red" VerticalOptions="End" HorizontalOptions="Center" />
+        </Grid>
+    </ContentPage.Content>
+</local:BaseContentPage>

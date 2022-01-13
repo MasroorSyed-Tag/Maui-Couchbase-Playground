@@ -66,6 +66,7 @@ services:
     restart: always
     ports:
       - "4984:4984"
+      - '4985:4985'
     volumes:
       - ./sync-gateway-config.json:/tmp/config/config.json
     networks:
